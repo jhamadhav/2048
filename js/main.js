@@ -38,13 +38,14 @@ function getTouches(evt) {
 }
 
 function handleTouchStart(evt) {
+    preventDefault();
     const firstTouch = getTouches(evt)[0];
     xDown = firstTouch.clientX;
     yDown = firstTouch.clientY;
 };
 
 function handleTouchMove(evt) {
-
+    preventDefault();
     if (!xDown || !yDown) { return; }
 
     var xUp = evt.touches[0].clientX;
@@ -58,20 +59,25 @@ function handleTouchMove(evt) {
         if (xDiff > 0) {
             /* right swipe */
             dir = 'left';
+            move_block();
         } else {
             /* right swipe */
             dir = 'right';
+            move_block();
         }
     }
     else {
         if (yDiff > 0) {
             /* up swipe */
             dir = 'up';
+            move_block();
         } else {
             /* down swipe */
             dir = 'down';
+            move_block();
         }
     }
+
     /* reset values */
     xDown = null; yDown = null;
 };
