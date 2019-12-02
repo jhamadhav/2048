@@ -1,5 +1,5 @@
 //colors
-var tile_color = ['#cec0b5', '#eedfc8', '#f3b07b', '#fe9462', '#f87c60', '#f65d3b', '#edce73', '#edce73', '#ffeb3b', '#ffeb3b', '#ffeb3b'];
+var tile_color = ['#cec0b5', '#eedfc8', '#f3b07b', '#fe9462', '#f87c60', '#f65d3b', '#edce73', '#edce73', '#edce73', '#edce73', '#edce73', '#f87c60'];
 
 function Cells(i) {
     this.i = i;
@@ -8,7 +8,7 @@ function Cells(i) {
     this.val = 0;
 
     this.draw = function () {
-        if (this.val <= 4) {
+        if (this.val <= 2) {
             tile[this.i].style.color = '#262626';
         } else {
             tile[this.i].style.color = 'aliceblue';
@@ -18,7 +18,11 @@ function Cells(i) {
         } else {
             tile[this.i].innerText = '';
         }
-        tile[this.i].style.background = tile_color[Math.log2(this.val)];
+        if (tile_color[Math.log2(this.val)]) {
+            tile[this.i].style.background = tile_color[Math.log2(this.val)];
+        } else {
+            tile[this.i].style.background = "#edce73";
+        }
         if (this.val == 0) {
             tile[this.i].style.background = tile_color[0];
         }
@@ -29,10 +33,10 @@ function Cells(i) {
 //actions performed on or by blocks
 
 //a function to choose two cells at the beginning 
-function choose2random(i = 0, v = 0) {
+function choose2random(i = null, v = 0) {
 
     let a = i;
-    if (i == 0) {
+    if (i == null) {
         a = Math.floor(ran(0, (tile.length)));
     }
 
@@ -49,8 +53,8 @@ function choose2random(i = 0, v = 0) {
     if (tile_set[a].val == 0) {
         tile_set[a].val = ran() > 0.9 ? 4 : 2;
         // tile_set[a].val = v;
-        if (v == 0) {
-            tile_set[a].val = 2;
+        if (v != 0) {
+            tile_set[a].val = v;
         }
     } else if (empty_cell > 0 && tile_set[a].val != 0) {
         choose2random();
@@ -84,7 +88,10 @@ function move_block() {
                     temp = index;
                 } else if (tile_set[index].val == tile_set[temp].val) {
                     tile_set[index].val = 2 * tile_set[temp].val;
+                    score += 2 * tile_set[temp].val;
                     tile_set[temp].val = 0;
+                } else {
+                    break;
                 }
 
             }
@@ -110,7 +117,11 @@ function move_block() {
                     temp = index;
                 } else if (tile_set[index].val == tile_set[temp].val) {
                     tile_set[index].val = 2 * tile_set[temp].val;
+                    score += 2 * tile_set[temp].val;
+
                     tile_set[temp].val = 0;
+                } else {
+                    break;
                 }
                 ny += vy;
                 index = ny * 4 + tile_set[temp].x;
@@ -142,7 +153,10 @@ function move_block() {
                         temp = index;
                     } else if (tile_set[index].val == tile_set[temp].val) {
                         tile_set[index].val = 2 * tile_set[temp].val;
+                        score += 2 * tile_set[temp].val;
                         tile_set[temp].val = 0;
+                    } else {
+                        break;
                     }
 
                     nx += vx;
@@ -175,7 +189,10 @@ function move_block() {
                         temp = index;
                     } else if (tile_set[index].val == tile_set[temp].val) {
                         tile_set[index].val = 2 * tile_set[temp].val;
+                        score += 2 * tile_set[temp].val;
                         tile_set[temp].val = 0;
+                    } else {
+                        break;
                     }
 
                     nx += vx;
@@ -188,7 +205,12 @@ function move_block() {
     for (let i = 0; i < tile.length; i++) {
         tile_set[i].draw();
     }
-
+    //changing score board
+    document.getElementById('score').innerText = score;
+    if (best < score) {
+        best = score;
+        document.getElementById('best').innerText = best;
+    }
     //once all blocks are moved another one will appear 
     setTimeout(choose2random, 160);
 

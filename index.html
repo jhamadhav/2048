@@ -7,9 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- fonts and stuff -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|EB+Garamond|Raleway" &display=swap"
+        rel="stylesheet">
 
     <!-- css and js -->
+    <link rel="stylesheet" href="navbar/nav.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/cells.js"></script>
     <script src="js/main.js"></script>
@@ -19,8 +21,47 @@
 </head>
 
 <body>
+    <!-- nav bar html starts here -->
+    <nav>
+        <div class="burger" onclick="menu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h1>Game-2048</h1>
+        <ul class="nav-links">
+            <a style="color:#262626" href="index.html">
+                <li style="border-bottom:4px solid #262626">home</li>
+            </a>
+            <a href="guide/guide.html">
+                <li>guide</li>
+            </a>
+            <a href="about/about.html">
+                <li>about</li>
+            </a>
+        </ul>
+    </nav>
+    <script>
+        function menu() {
+            document.getElementsByClassName("nav-links")[0].classList.toggle("open");
+            document.getElementsByClassName("burger")[0].classList.toggle("menuAnimate");
+        }
+    </script>
+    <!-- nav bar html ends here -->
     <main>
+
         <div class="game-container">
+            <div class="board">
+                <div class="score-holder">
+                    <span>Score</span>
+                    <div id="score">0</div>
+                </div>
+                <div class="best-holder">
+                    <span>Best</span>
+                    <div id="best">0</div>
+                </div>
+                <button id="new_game" onclick="init()">New Game</button>
+            </div>
             <div class="game-row">
                 <div class="cell"></div>
                 <div class="cell"></div>
@@ -48,6 +89,7 @@
 
         </div>
     </main>
+
 </body>
 
 </html>

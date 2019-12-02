@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- fonts and stuff -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" &display=swap" rel="stylesheet">
+
+    <!-- css and js -->
+    <link rel="stylesheet" href="../navbar/nav.css">
+    <link rel="stylesheet" href="guide.css">
+    <!-- end of css and js files -->
+
+    <title>Guide - 2048</title>
+</head>
+
+<body>
+    <!-- nav bar html starts here -->
+    <nav>
+        <div class="burger" onclick="menu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h1>Guide</h1>
+        <ul class="nav-links">
+            <a href="../index.html">
+                <li>home</li>
+            </a>
+            <a style="color:#262626" href="guide/guide.html">
+                <li style="border-bottom:4px solid #262626">guide</li>
+            </a>
+            <a href="../about/about.html">
+                <li>about</li>
+            </a>
+        </ul>
+    </nav>
+    <script>
+        function menu() {
+            document.getElementsByClassName("nav-links")[0].classList.toggle("open");
+            document.getElementsByClassName("burger")[0].classList.toggle("menuAnimate");
+        }
+    </script>
+    <!-- nav bar html ends here -->
+    <div class="bg"></div>
+    <main>
+        <h2>2048 Game Overview</h2>
+        <p>2048 is a cool math and puzzle game that was created in 2014 and quickly became popular around the globe.
+            Inspired by 1024 and Threes! <br><br> 2048 game is an exciting combination of math and strategy.
+            Can you get a 2048 high score? Give it a try ! </p>
+        <br>
+        <h2>How to Beat 2048</h2>
+        <p>
+            To beat 2048, players must move numbered tiles and combine them to produce a tile with a value of 2048. More
+            tiles are added to the board every turn and only identical numbers can be combined. Once the board is full
+            and no more tiles can be combined, the game is over. However, skilled players that create a tile with a
+            value of 2048 can continue playing with bigger numbers. Keep playing to develop your 2048 strategy; and
+            develope a better sense of it.
+            <br> <br> I hope that you enjoy it.
+        </p>
+    </main>
+</body>
+
+</html>

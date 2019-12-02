@@ -23,6 +23,9 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .game-container {
@@ -44,6 +47,81 @@ main {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  margin-top: 30px;
+}
+
+.board {
+  width: 97%;
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.board button {
+  border-radius: 5px;
+  padding: 10px;
+  background: #8f7a65;
+  color: white;
+  outline: none;
+  border: none;
+  font-family: 'Roboto Mono', monospace;
+  font-size: medium;
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
+}
+
+.score-holder,
+.best-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #fe9462;
+  color: white;
+  text-transform: uppercase;
+  font-size: large;
+  margin-bottom: 4px;
+  width: var(--side);
+  max-width: 102px;
+  max-height: 102px;
+  padding: 2px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+span {
+  color: lightgray;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: small;
+  margin-bottom: 2px;
+  font-weight: bold;
 }
 
 .game-row {
@@ -83,7 +161,7 @@ main {
   color: aliceblue;
   font-size: x-large;
   font-weight: bolder;
-  -webkit-transition-duration: 160ms;
-          transition-duration: 160ms;
+  -webkit-transition-duration: 210ms;
+          transition-duration: 210ms;
 }
 /*# sourceMappingURL=main.css.map */
