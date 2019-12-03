@@ -16,6 +16,45 @@
      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
  }
 
+ .msg-holder {
+     display: flex;
+     width: 100vw;
+     height: 70px;
+     justify-content: space-around;
+     align-items: center;
+     position: relative;
+     left: 0;
+     background: transparent;
+     z-index: 2;
+ }
+
+ #msg {
+     border-radius: 25px;
+     padding: 12px 26px;
+     background: rgba(237, 164, 66, 1);
+     font-family: 'Roboto Mono', monospace;
+     font-size: medium;
+     opacity: 0;
+ }
+
+ .show-msg {
+     display: block;
+     animation: fall 1.4s ease-out;
+ }
+
+ @keyframes fall {
+
+     40% {
+         opacity: 1;
+         transform: translateY(120px);
+     }
+
+     100% {
+         opacity: 1;
+         transform: translateY(120px);
+     }
+ }
+
  main {
      width: 100vw;
      height: 100vh;

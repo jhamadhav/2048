@@ -1,10 +1,15 @@
 //colors
-var tile_color = ['#cec0b5', '#eedfc8', '#f3b07b', '#fe9462', '#f87c60', '#f65d3b', '#edce73', '#edce73', '#edce73', '#edce73', '#edce73', '#f87c60'];
+var tile_color =
+    ['#cec0b5', '#eedfc8', '#f3b07b', '#fe9462',
+        '#f87c60', '#f65d3b', '#edce73', '#edce73',
+        '#edce73', '#edce73', '#edce73', '#f87c60'
+    ];
+var row = 4;
 
 function Cells(i) {
     this.i = i;
-    this.x = this.i % 4;
-    this.y = Math.floor(i / 4);
+    this.x = this.i % row;
+    this.y = Math.floor(i / row);
     this.val = 0;
 
     this.draw = function () {
@@ -29,17 +34,15 @@ function Cells(i) {
     }
 }
 
-
-//actions performed on or by blocks
-
-//a function to choose two cells at the beginning 
+/*
+actions performed on or by blocks
+a function to choose two cells at the beginning 
+*/
 function choose2random(i = null, v = 0) {
-
     let a = i;
     if (i == null) {
         a = Math.floor(ran(0, (tile.length)));
     }
-
 
     //check no. of empty cells
     let empty_cell = 0;
@@ -52,7 +55,6 @@ function choose2random(i = null, v = 0) {
     //assign value if empty
     if (tile_set[a].val == 0) {
         tile_set[a].val = ran() > 0.9 ? 4 : 2;
-        // tile_set[a].val = v;
         if (v != 0) {
             tile_set[a].val = v;
         }
@@ -65,9 +67,25 @@ function choose2random(i = null, v = 0) {
 }
 
 //to move blocks
+function draw_block() {
+    //draw all the blocks
+    for (let i = 0; i < tile.length; i++) {
+        tile_set[i].draw();
+    }
+    //changing score board
+    document.getElementById('score').innerText = score;
+    if (best < score) {
+        best = score;
+        document.getElementById('best').innerText = best;
+        if (typeof (Storage) !== undefined) {
+            localStorage.best_score = '' + best + '';
+        }
+    }
+    //once all blocks are moved another one will appear 
+    setTimeout(choose2random, 160);
+}
 function move_block() {
-
-    //for upward movement
+    let count = 0;
     if (dir == 'up') {
 
         let vy = -1;
@@ -75,22 +93,24 @@ function move_block() {
         for (let i = 0; i < tile.length; i++) {
             let temp = i;
             let ny = tile_set[i].y;
-            let index = ny * 4 + tile_set[i].x;
+            let index = ny * row + tile_set[i].x;
             //console.log(index);
 
             while (ny != 0 && index >= 0) {
                 ny += vy;
-                index = ny * 4 + tile_set[temp].x;
+                index = ny * row + tile_set[temp].x;
 
                 if (index >= 0 && tile_set[index].val == 0) {
                     tile_set[index].val = tile_set[temp].val;
                     tile_set[temp].val = 0;
                     temp = index;
+                    count++;
                 } else if (tile_set[index].val == tile_set[temp].val) {
                     tile_set[index].val = 2 * tile_set[temp].val;
                     score += 2 * tile_set[temp].val;
                     show_animation(tile_set[index].val);
                     tile_set[temp].val = 0;
+                    count++;
                 } else {
                     break;
                 }
@@ -116,11 +136,13 @@ function move_block() {
                     tile_set[index].val = tile_set[temp].val;
                     tile_set[temp].val = 0;
                     temp = index;
+                    count++;
                 } else if (tile_set[index].val == tile_set[temp].val) {
                     tile_set[index].val = 2 * tile_set[temp].val;
                     score += 2 * tile_set[temp].val;
                     show_animation(tile_set[index].val);
                     tile_set[temp].val = 0;
+                    count++;
                 } else {
                     break;
                 }
@@ -152,11 +174,13 @@ function move_block() {
                         tile_set[index].val = tile_set[temp].val;
                         tile_set[temp].val = 0;
                         temp = index;
+                        count++;
                     } else if (tile_set[index].val == tile_set[temp].val) {
                         tile_set[index].val = 2 * tile_set[temp].val;
                         score += 2 * tile_set[temp].val;
                         show_animation(tile_set[index].val);
                         tile_set[temp].val = 0;
+                        count++;
                     } else {
                         break;
                     }
@@ -189,11 +213,13 @@ function move_block() {
                         tile_set[index].val = tile_set[temp].val;
                         tile_set[temp].val = 0;
                         temp = index;
+                        count++;
                     } else if (tile_set[index].val == tile_set[temp].val) {
                         tile_set[index].val = 2 * tile_set[temp].val;
                         score += 2 * tile_set[temp].val;
                         show_animation(tile_set[index].val);
                         tile_set[temp].val = 0;
+                        count++;
                     } else {
                         break;
                     }
@@ -207,6 +233,13 @@ function move_block() {
     //draw all the blocks
     for (let i = 0; i < tile.length; i++) {
         tile_set[i].draw();
+        if (tile_set[i].val == 2048) {
+            //if 2048 is reached
+            show_msg('Congratulation!!!');
+        }
+    }
+    if (count == 0) {
+        show_msg('No moves left! Try new game :)');
     }
     //changing score board
     document.getElementById('score').innerText = score;
@@ -217,9 +250,9 @@ function move_block() {
             localStorage.best_score = '' + best + '';
         }
     }
+
     //once all blocks are moved another one will appear 
     setTimeout(choose2random, 160);
-
 }
 //function to produce random number
 const ran = (min = 0, max = 1) => {

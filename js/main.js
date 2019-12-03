@@ -3,23 +3,70 @@ var tile, dir = null;
 var tile_set = [];
 var score, best = 0;
 
+window.addEventListener('load', init);
+/* end */
+
+function init() {
+    //setting i.e adding swipe events
+    let container = document.getElementsByClassName('game-container')[0];
+    container.addEventListener('touchstart', handleTouchStart, false);
+    container.addEventListener('touchmove', handleTouchMove, false);
+
+    score = 0;
+    best = Number(localStorage.best_score) | 0;
+    document.getElementById('score').innerText = score;
+    document.getElementById('best').innerText = best;
+
+    tile_set = [];
+    tile = document.getElementsByClassName('cell');
+
+    for (let i = 0; i < tile.length; i++) {
+        tile_set[i] = new Cells(i);
+    }
+
+    choose2random();
+    choose2random();
+    for (let i = 0; i < tile.length; i++) {
+
+        // let index = tile_set[i].y * 4 + tile_set[i].x;
+        // console.log('x:' + tile_set[i].x + ', y:' + tile_set[i].y + ' index: ' + index + '\n');
+        tile_set[i].draw();
+    }
+}
+
+//for a new game
+function new_game() {
+    show_msg('A new game !');
+    setTimeout(init, 1000);
+}
 /* Controls */
 //with keyboard
 window.addEventListener('keyup', function (e) {
 
     //to move blocks
     if (e.key == 'ArrowUp' || e.key == 'w') {
-        dir = 'up'; move_block();
+        dir = 'up';
+        move_block();
     } else if (e.key == 'ArrowRight' || e.key == 'd') {
         dir = 'right'; move_block();
     } else if (e.key == 'ArrowDown' || e.key == 's') {
-        dir = 'down'; move_block();
+        dir = 'down';
+        move_block();
     } else if (e.key == 'ArrowLeft' || e.key == 'a') {
         dir = 'left'; move_block();
     }
     //console.log(dir);
 });
 
+//to show a message on screen
+function show_msg(txt) {
+    let holder = document.getElementById('msg');
+    msg.innerText = txt;
+    msg.classList.add('show-msg');
+    msg.addEventListener('animationend', function () {
+        msg.classList.remove('show-msg');
+    })
+}
 //with swipe
 /*  actual swipe capture */
 var xDown = null, yDown = null;
@@ -74,34 +121,3 @@ function handleTouchMove(evt) {
     xDown = null; yDown = null;
 };
 
-window.addEventListener('load', init);
-/* end */
-
-function init() {
-    //setting i.e adding swipe events
-    let container = document.getElementsByClassName('game-container')[0];
-    container.addEventListener('touchstart', handleTouchStart, false);
-    container.addEventListener('touchmove', handleTouchMove, false);
-
-    score = 0;
-    best = Number(localStorage.best_score) | 0;
-    document.getElementById('score').innerText = score;
-    document.getElementById('best').innerText = best;
-
-    tile_set = [];
-    tile = document.getElementsByClassName('cell');
-
-    for (let i = 0; i < tile.length; i++) {
-        tile_set[i] = new Cells(i);
-    }
-
-    choose2random();
-    choose2random();
-    for (let i = 0; i < tile.length; i++) {
-
-        // let index = tile_set[i].y * 4 + tile_set[i].x;
-        // console.log('x:' + tile_set[i].x + ', y:' + tile_set[i].y + ' index: ' + index + '\n');
-        tile_set[i].draw();
-    }
-
-}

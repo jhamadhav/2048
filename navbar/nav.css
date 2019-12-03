@@ -15,10 +15,11 @@ body {
    color: #efefef;
    overflow-x: hidden;
    --theme: #edce73;
+   --h: 62px;
 }
 
 nav {
-   height: 70px;
+   height: var(--h);
    width: 100%;
    background-color: var(--theme);
    display: -webkit-box;
@@ -66,8 +67,8 @@ nav {
       position: absolute;
       background-color: var(--theme);
       width: 100vw;
-      height: calc(100vh - 70px);
-      top: 70px;
+      height: calc(100vh - var(--h));
+      top: var(--h);
       -webkit-transition: 1000ms;
       transition: 1000ms;
       border-top: 3px solid #bdaca2;
