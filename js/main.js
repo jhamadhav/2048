@@ -33,14 +33,14 @@ function getTouches(evt) {
 }
 
 function handleTouchStart(evt) {
-    // preventDefault();
+    preventDefault();
     const firstTouch = getTouches(evt)[0];
     xDown = firstTouch.clientX;
     yDown = firstTouch.clientY;
 };
 
 function handleTouchMove(evt) {
-    // preventDefault();
+    preventDefault();
     if (!xDown || !yDown) { return; }
 
     var xUp = evt.touches[0].clientX;
