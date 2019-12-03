@@ -6,10 +6,14 @@
 
  body {
      background-color: #bdaca2;
-
+     position: fixed;
+     top: 0;
+     left: 0;
      width: 100vw;
      height: 100vh;
      --side: 20vw;
+     --max: 102px;
+     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
  }
 
  main {
@@ -31,7 +35,7 @@
      border-radius: 5px;
      padding: 6px;
      user-select: none;
-     margin-top: 30px;
+     margin-top: 70px;
  }
 
  .board {
@@ -44,7 +48,53 @@
      font-family: 'Roboto Mono', monospace;
  }
 
- .board button {
+ #best,
+ #score {
+     font-family: 'Roboto Mono', monospace;
+     letter-spacing: 0;
+     font-size: medium;
+ }
+
+ .show_anim {
+     font-family: inherit;
+     display: block;
+     height: 2px;
+ }
+
+ .anim {
+     animation: fly 480ms ease-in;
+     opacity: 0;
+     transition-duration: 200ms;
+     display: block;
+     position: absolute;
+     font-family: inherit;
+
+ }
+
+ @keyframes fly {
+     0% {
+         opacity: .2;
+         transform: translateY(0);
+     }
+
+     10% {
+         opacity: .8;
+         transform: translateY(-12px);
+     }
+
+     36% {
+         opacity: 1;
+         transform: translateY(-12px);
+     }
+
+     100% {
+         opacity: 1;
+         transform: translateY(-38px);
+     }
+ }
+
+
+ button {
      border-radius: 5px;
      padding: 10px;
      background: #8f7a65;
@@ -55,6 +105,8 @@
      font-size: medium;
      cursor: pointer;
      box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+     margin-top: 10px;
+     letter-spacing: 1px;
  }
 
  button:active {
@@ -66,28 +118,27 @@
      display: flex;
      justify-content: space-around;
      align-items: center;
-     flex-direction: column;
-     background: #fe9462;
+     flex-direction: row;
+     background: #8f7a65;
      color: white;
      text-transform: uppercase;
      font-size: large;
      margin-bottom: 4px;
-     width: var(--side);
-     max-width: 102px;
-     max-height: 102px;
+     width: auto;
      padding: 2px;
      border-radius: 5px;
      box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+     font-family: "Raleway", sans-serif;
+     padding: 3px 10px 3px 10px;
  }
-
 
  span {
      color: lightgray;
-     text-shadow: 0 2px 4px rgba(0, 0, 0, .2);
      font-size: small;
      margin-bottom: 2px;
      font-weight: bold;
-
+     font-family: "Raleway", sans-serif;
+     letter-spacing: 1px;
  }
 
  .game-row {
@@ -101,8 +152,8 @@
      display: flex;
      width: var(--side);
      height: var(--side);
-     max-width: 102px;
-     max-height: 102px;
+     max-width: var(--max);
+     max-height: var(--max);
      justify-content: space-around;
      align-items: center;
      margin: 4px;

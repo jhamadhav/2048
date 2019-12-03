@@ -89,6 +89,7 @@ function move_block() {
                 } else if (tile_set[index].val == tile_set[temp].val) {
                     tile_set[index].val = 2 * tile_set[temp].val;
                     score += 2 * tile_set[temp].val;
+                    show_animation(tile_set[index].val);
                     tile_set[temp].val = 0;
                 } else {
                     break;
@@ -118,7 +119,7 @@ function move_block() {
                 } else if (tile_set[index].val == tile_set[temp].val) {
                     tile_set[index].val = 2 * tile_set[temp].val;
                     score += 2 * tile_set[temp].val;
-
+                    show_animation(tile_set[index].val);
                     tile_set[temp].val = 0;
                 } else {
                     break;
@@ -154,6 +155,7 @@ function move_block() {
                     } else if (tile_set[index].val == tile_set[temp].val) {
                         tile_set[index].val = 2 * tile_set[temp].val;
                         score += 2 * tile_set[temp].val;
+                        show_animation(tile_set[index].val);
                         tile_set[temp].val = 0;
                     } else {
                         break;
@@ -190,6 +192,7 @@ function move_block() {
                     } else if (tile_set[index].val == tile_set[temp].val) {
                         tile_set[index].val = 2 * tile_set[temp].val;
                         score += 2 * tile_set[temp].val;
+                        show_animation(tile_set[index].val);
                         tile_set[temp].val = 0;
                     } else {
                         break;
@@ -210,6 +213,9 @@ function move_block() {
     if (best < score) {
         best = score;
         document.getElementById('best').innerText = best;
+        if (typeof (Storage) !== undefined) {
+            localStorage.best_score = '' + best + '';
+        }
     }
     //once all blocks are moved another one will appear 
     setTimeout(choose2random, 160);
@@ -218,4 +224,17 @@ function move_block() {
 //function to produce random number
 const ran = (min = 0, max = 1) => {
     return Math.random() * (max - min) + min;
+}
+
+//function to show number animation
+function show_animation(val) {
+    let cont = document.getElementsByClassName('show_anim')[0];
+    let div = document.createElement('div');
+    cont.append(div);
+    div.innerText = '+' + val;
+    div.classList.add('anim');
+
+    div.addEventListener('animationend', function () {
+        cont.removeChild(div);
+    })
 }

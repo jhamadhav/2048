@@ -23,20 +23,20 @@
 <body>
     <!-- nav bar html starts here -->
     <nav>
-        <div class="burger" onclick="menu()">
+        <div class="burger" onclick="menu()" title="Menu bar">
             <span></span>
             <span></span>
             <span></span>
         </div>
-        <h1>Game-2048</h1>
+        <h1>Game - 2048</h1>
         <ul class="nav-links">
             <a style="color:#262626" href="index.html">
                 <li style="border-bottom:4px solid #262626">home</li>
             </a>
-            <a href="guide/guide.html">
+            <a href="guide/guide.html" title="Learn how to play">
                 <li>guide</li>
             </a>
-            <a href="about/about.html">
+            <a href="about/about.html" title="some insight">
                 <li>about</li>
             </a>
         </ul>
@@ -53,14 +53,14 @@
         <div class="game-container">
             <div class="board">
                 <div class="score-holder">
-                    <span>Score</span>
+                    <span>Score :&nbsp;</span>
                     <div id="score">0</div>
                 </div>
+                <div class="show_anim"></div>
                 <div class="best-holder">
-                    <span>Best</span>
+                    <span>Best :&nbsp;</span>
                     <div id="best">0</div>
                 </div>
-                <button id="new_game" onclick="init()">New Game</button>
             </div>
             <div class="game-row">
                 <div class="cell"></div>
@@ -86,7 +86,7 @@
                 <div class="cell"></div>
                 <div class="cell"></div>
             </div>
-
+            <button title="Start new game" id="new_game" onclick="init()">New Game</button>
         </div>
     </main>
 

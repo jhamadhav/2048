@@ -5,30 +5,24 @@ var score, best = 0;
 
 /* Controls */
 //with keyboard
-window.addEventListener('keydown', function (e) {
-    //to reset the game
-    if (e.key == ' ') {
-        init();
-    } else {
-        //to move blocks
-        if (e.key == 'ArrowUp' || e.key == 'w') {
-            dir = 'up';
-        } else if (e.key == 'ArrowRight' || e.key == 'd') {
-            dir = 'right';
-        } else if (e.key == 'ArrowDown' || e.key == 's') {
-            dir = 'down';
-        } else if (e.key == 'ArrowLeft' || e.key == 'a') {
-            dir = 'left';
-        }
-        //console.log(dir);
-        move_block();
+window.addEventListener('keyup', function (e) {
+
+    //to move blocks
+    if (e.key == 'ArrowUp' || e.key == 'w') {
+        dir = 'up'; move_block();
+    } else if (e.key == 'ArrowRight' || e.key == 'd') {
+        dir = 'right'; move_block();
+    } else if (e.key == 'ArrowDown' || e.key == 's') {
+        dir = 'down'; move_block();
+    } else if (e.key == 'ArrowLeft' || e.key == 'a') {
+        dir = 'left'; move_block();
     }
+    //console.log(dir);
 });
 
 //with swipe
 /*  actual swipe capture */
 window.addEventListener('touchstart', handleTouchStart, false);
-
 window.addEventListener('touchmove', handleTouchMove, false);
 
 var xDown = null, yDown = null;
@@ -84,13 +78,20 @@ function handleTouchMove(evt) {
 };
 
 window.addEventListener('load', init);
-window.addEventListener('dblclick', init);
 /* end */
 
 function init() {
-    tile_set = [];
+    //setting i.e adding swipe events
+    let container = document.getElementsByClassName('game-container')[0];
+    // container.addEventListener('touchstart', handleTouchStart, false);
+    // container.addEventListener('touchmove', handleTouchMove, false);
+
     score = 0;
+    best = Number(localStorage.best_score) | 0;
     document.getElementById('score').innerText = score;
+    document.getElementById('best').innerText = best;
+
+    tile_set = [];
     tile = document.getElementsByClassName('cell');
 
     for (let i = 0; i < tile.length; i++) {
