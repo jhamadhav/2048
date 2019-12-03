@@ -10,6 +10,6 @@ I hope you enjoy it!
 <br>
 
 Sample: <br>
-![sample image](images\sample.jpg)
+![sample image](https://jhamadhav.com/2048/images/sample.jpg)
 <br>
 Demo : https://jhamadhav.com/2048/
