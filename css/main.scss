@@ -20,11 +20,19 @@
      width: 100vw;
      height: 100vh;
      display: flex;
-     justify-content: space-around;
+     justify-content: center;
      align-items: center;
      position: fixed;
+     flex-direction: column;
      top: 0;
      left: 0;
+ }
+
+ .wrapper {
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+     flex-direction: column;
  }
 
  .game-container {
@@ -35,7 +43,8 @@
      border-radius: 5px;
      padding: 6px;
      user-select: none;
-     margin: auto;
+     margin-top: auto;
+     margin-bottom: 6px;
  }
 
  .board {
@@ -105,7 +114,6 @@
      font-size: medium;
      cursor: pointer;
      box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
-     margin-top: 10px;
      letter-spacing: 1px;
  }
 
