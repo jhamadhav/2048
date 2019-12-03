@@ -22,9 +22,6 @@ window.addEventListener('keyup', function (e) {
 
 //with swipe
 /*  actual swipe capture */
-window.addEventListener('touchstart', handleTouchStart, false);
-window.addEventListener('touchmove', handleTouchMoveForNav, false);
-
 var xDown = null, yDown = null;
 
 function getTouches(evt) {
@@ -73,30 +70,6 @@ function handleTouchMove(evt) {
         }
     }
 
-    /* reset values */
-    xDown = null; yDown = null;
-};
-
-//for nav
-function handleTouchMoveForNav(evt) {
-    evt.preventDefault();
-    if (!xDown || !yDown) { return; }
-
-    let xUp = evt.touches[0].clientX;
-    let yUp = evt.touches[0].clientY;
-    let xDiff = xDown - xUp;
-    let yDiff = yDown - yUp;
-
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-
-        /*Response part*/
-        if (xDiff > 0) {
-            /* right swipe */
-            menu();
-        } else {
-            menu();
-        }
-    }
     /* reset values */
     xDown = null; yDown = null;
 };
