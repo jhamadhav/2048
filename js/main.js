@@ -22,8 +22,8 @@ window.addEventListener('keyup', function (e) {
 
 //with swipe
 /*  actual swipe capture */
-window.addEventListener('touchstart', handleTouchStart, false);
-window.addEventListener('touchmove', handleTouchMove, false);
+// window.addEventListener('touchstart', handleTouchStart, false);
+// window.addEventListener('touchmove', handleTouchMove, false);
 
 var xDown = null, yDown = null;
 
@@ -83,8 +83,8 @@ window.addEventListener('load', init);
 function init() {
     //setting i.e adding swipe events
     let container = document.getElementsByClassName('game-container')[0];
-    // container.addEventListener('touchstart', handleTouchStart, false);
-    // container.addEventListener('touchmove', handleTouchMove, false);
+    container.addEventListener('touchstart', handleTouchStart, false);
+    container.addEventListener('touchmove', handleTouchMove, false);
 
     score = 0;
     best = Number(localStorage.best_score) | 0;
