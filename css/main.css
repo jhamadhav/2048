@@ -9,8 +9,8 @@ body {
   background-color: #bdaca2;
   width: 100vw;
   height: 100vh;
-  --side: 20vw;
-  --max: 102px;
+  --side: 19vw;
+  --max: 100px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -33,11 +33,14 @@ body {
 
 #msg {
   border-radius: 25px;
-  padding: 12px 26px;
+  padding: 12px;
   background: #eda442;
   font-family: 'Roboto Mono', monospace;
   font-size: medium;
   opacity: 0;
+  text-align: center;
+  width: 80vw;
+  max-width: 400px;
 }
 
 .show-msg {
@@ -47,7 +50,7 @@ body {
 }
 
 @-webkit-keyframes fall {
-  40% {
+  30% {
     opacity: 1;
     -webkit-transform: translateY(120px);
             transform: translateY(120px);
@@ -60,7 +63,7 @@ body {
 }
 
 @keyframes fall {
-  40% {
+  30% {
     opacity: 1;
     -webkit-transform: translateY(120px);
             transform: translateY(120px);
@@ -165,8 +168,8 @@ main {
 }
 
 .anim {
-  -webkit-animation: fly 480ms ease-in;
-          animation: fly 480ms ease-in;
+  -webkit-animation: fly 540ms ease-in;
+          animation: fly 540ms ease-in;
   opacity: 0;
   -webkit-transition-duration: 200ms;
           transition-duration: 200ms;
@@ -236,9 +239,14 @@ button {
   letter-spacing: 1px;
 }
 
+.best-holder:active,
 button:active {
   -webkit-transform: scale(0.85);
           transform: scale(0.85);
+}
+
+.best-holder {
+  cursor: pointer;
 }
 
 .score-holder,
@@ -312,10 +320,62 @@ span {
   -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   font-family: 'Roboto Mono', monospace;
-  color: aliceblue;
+  color: white;
   font-size: x-large;
   font-weight: bolder;
-  -webkit-transition-duration: 210ms;
-          transition-duration: 210ms;
+}
+
+.pop {
+  -webkit-animation: pop 380ms ease;
+          animation: pop 380ms ease;
+}
+
+@-webkit-keyframes pop {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.bubble {
+  -webkit-animation: bubble 180ms linear;
+          animation: bubble 180ms linear;
+}
+
+@-webkit-keyframes bubble {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.21);
+            transform: scale(1.21);
+  }
+}
+
+@keyframes bubble {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.21);
+            transform: scale(1.21);
+  }
 }
 /*# sourceMappingURL=main.css.map */

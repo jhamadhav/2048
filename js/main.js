@@ -1,9 +1,26 @@
 // global variables
 var tile, dir = null;
 var tile_set = [];
-var score, best = 0;
+var score, best = 0, count_hint = 0;
 
-window.addEventListener('load', init);
+//some in game tips
+const hints = [
+    'Click best to reset it !',
+    'Keep blocks in a corner',
+    'use strategy other than random moves !',
+    'Don\'t chase large tiles',
+    'Plan ahead',
+    'Slow down and think',
+    'try merging multiple tiles at once',
+    'Avoid checkerboarding'
+];
+
+//onload function
+window.addEventListener('load', () => {
+    show_msg('Swipe blocks to make 2048 !');
+    init();
+});
+
 /* end */
 
 function init() {
@@ -36,8 +53,18 @@ function init() {
 
 //for a new game
 function new_game() {
-    show_msg('A new game !');
-    setTimeout(init, 1000);
+    show_msg('Hint: ' + hints[count_hint % (hints.length)]);
+    setTimeout(init, 200);
+    count_hint++;
+}
+
+//reset best
+function rest_best() {
+    localStorage.best_score = '0';
+    best = Number(localStorage.best_score) | 0;
+    document.getElementById('best').innerText = best;
+    show_msg('Best score reset complete !');
+
 }
 /* Controls */
 //with keyboard

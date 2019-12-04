@@ -15,7 +15,7 @@ body {
    color: #efefef;
    overflow-x: hidden;
    --theme: #edce73;
-   --h: 62px;
+   --h: 64px;
 }
 
 nav {
@@ -69,10 +69,10 @@ nav {
       width: 100vw;
       height: calc(100vh - var(--h));
       top: var(--h);
-      -webkit-transition: 1000ms;
-      transition: 1000ms;
+      -webkit-transition: 250ms;
+      transition: 250ms;
       border-top: 3px solid #bdaca2;
-      clip-path: circle(0 at 0 0);
+      left: -100%;
       z-index: -1;
       visibility: hidden;
    }
@@ -152,7 +152,7 @@ nav h1 {
 .open {
    z-index: 1;
    visibility: visible;
-   clip-path: circle(1100px at 0 0);
+   left: 0;
 }
 
 .menuAnimate span:nth-child(1) {

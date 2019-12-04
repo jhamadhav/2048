@@ -11,8 +11,8 @@
      //  left: 0;
      width: 100vw;
      height: 100vh;
-     --side: 20vw;
-     --max: 102px;
+     --side: 19vw;
+     --max: 100px;
      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
  }
 
@@ -30,11 +30,14 @@
 
  #msg {
      border-radius: 25px;
-     padding: 12px 26px;
+     padding: 12px;
      background: rgba(237, 164, 66, 1);
      font-family: 'Roboto Mono', monospace;
      font-size: medium;
      opacity: 0;
+     text-align: center;
+     width: 80vw;
+     max-width: 400px;
  }
 
  .show-msg {
@@ -44,7 +47,7 @@
 
  @keyframes fall {
 
-     40% {
+     30% {
          opacity: 1;
          transform: translateY(120px);
      }
@@ -110,7 +113,7 @@
  }
 
  .anim {
-     animation: fly 480ms ease-in;
+     animation: fly 540ms ease-in;
      opacity: 0;
      transition-duration: 200ms;
      display: block;
@@ -156,8 +159,13 @@
      letter-spacing: 1px;
  }
 
+ .best-holder:active,
  button:active {
      transform: scale(0.85);
+ }
+
+ .best-holder {
+     cursor: pointer;
  }
 
  .score-holder,
@@ -208,8 +216,36 @@
      background: #cec0b5;
      box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
      font-family: 'Roboto Mono', monospace;
-     color: aliceblue;
+     color: white;
      font-size: x-large;
      font-weight: bolder;
-     transition-duration: 210ms;
+
+ }
+
+ .pop {
+     animation: pop 380ms ease;
+ }
+
+ @keyframes pop {
+     0% {
+         transform: scale(0);
+     }
+
+     100% {
+         transform: scale(1);
+     }
+ }
+
+ .bubble {
+     animation: bubble 180ms linear;
+ }
+
+ @keyframes bubble {
+     0% {
+         transform: scale(1);
+     }
+
+     100% {
+         transform: scale(1.21);
+     }
  }

@@ -11,12 +11,14 @@ function Cells(i) {
     this.x = this.i % row;
     this.y = Math.floor(i / row);
     this.val = 0;
+    this.pop = false;
 
     this.draw = function () {
-        if (this.val <= 2) {
+        if (this.val < 4) {
             tile[this.i].style.color = '#262626';
         } else {
-            tile[this.i].style.color = 'aliceblue';
+            tile[this.i].style.color = 'white';
+
         }
         if (this.val >= 2) {
             tile[this.i].innerText = this.val;
@@ -30,6 +32,14 @@ function Cells(i) {
         }
         if (this.val == 0) {
             tile[this.i].style.background = tile_color[0];
+        }
+        //for the pop effect
+        if (this.pop && this.val >= 2) {
+            tile[this.i].classList.add('pop');
+            tile[this.i].addEventListener('animationend', () => {
+                tile[this.i].classList.remove('pop');
+                this.pop = false;
+            })
         }
     }
 }
@@ -58,6 +68,8 @@ function choose2random(i = null, v = 0) {
         if (v != 0) {
             tile_set[a].val = v;
         }
+        tile_set[a].pop = true;
+        // console.log(tile_set[a].pop);
     } else if (empty_cell > 0 && tile_set[a].val != 0) {
         choose2random();
     }
@@ -71,6 +83,10 @@ function draw_block() {
     //draw all the blocks
     for (let i = 0; i < tile.length; i++) {
         tile_set[i].draw();
+        if (tile_set[i].val == 2048) {
+            //if 2048 is reached
+            show_msg('Congratulation!!!');
+        }
     }
     //changing score board
     document.getElementById('score').innerText = score;
@@ -106,10 +122,7 @@ function move_block() {
                     temp = index;
                     count++;
                 } else if (tile_set[index].val == tile_set[temp].val) {
-                    tile_set[index].val = 2 * tile_set[temp].val;
-                    score += 2 * tile_set[temp].val;
-                    show_animation(tile_set[index].val);
-                    tile_set[temp].val = 0;
+                    comb_val(index, temp);
                     count++;
                 } else {
                     break;
@@ -138,10 +151,7 @@ function move_block() {
                     temp = index;
                     count++;
                 } else if (tile_set[index].val == tile_set[temp].val) {
-                    tile_set[index].val = 2 * tile_set[temp].val;
-                    score += 2 * tile_set[temp].val;
-                    show_animation(tile_set[index].val);
-                    tile_set[temp].val = 0;
+                    comb_val(index, temp);
                     count++;
                 } else {
                     break;
@@ -176,10 +186,7 @@ function move_block() {
                         temp = index;
                         count++;
                     } else if (tile_set[index].val == tile_set[temp].val) {
-                        tile_set[index].val = 2 * tile_set[temp].val;
-                        score += 2 * tile_set[temp].val;
-                        show_animation(tile_set[index].val);
-                        tile_set[temp].val = 0;
+                        comb_val(index, temp);
                         count++;
                     } else {
                         break;
@@ -215,10 +222,7 @@ function move_block() {
                         temp = index;
                         count++;
                     } else if (tile_set[index].val == tile_set[temp].val) {
-                        tile_set[index].val = 2 * tile_set[temp].val;
-                        score += 2 * tile_set[temp].val;
-                        show_animation(tile_set[index].val);
-                        tile_set[temp].val = 0;
+                        comb_val(index, temp);
                         count++;
                     } else {
                         break;
@@ -230,29 +234,26 @@ function move_block() {
             }
         }
     }
+
+    //function that combines the value
+    function comb_val(index, temp) {
+        tile_set[index].val = 2 * tile_set[temp].val;
+        score += 2 * tile_set[temp].val;
+        show_animation(tile_set[index].val);
+        tile_set[temp].val = 0;
+        tile[index].classList.add('bubble');
+        tile[index].addEventListener('animationend', () => {
+            tile[index].classList.remove('bubble');
+        });
+    }
     //draw all the blocks
-    for (let i = 0; i < tile.length; i++) {
-        tile_set[i].draw();
-        if (tile_set[i].val == 2048) {
-            //if 2048 is reached
-            show_msg('Congratulation!!!');
-        }
-    }
+    draw_block();
+
+    //to show indicative moves
     if (count == 0) {
-        show_msg('No moves left! Try new game :)');
-    }
-    //changing score board
-    document.getElementById('score').innerText = score;
-    if (best < score) {
-        best = score;
-        document.getElementById('best').innerText = best;
-        if (typeof (Storage) !== undefined) {
-            localStorage.best_score = '' + best + '';
-        }
+        show_msg('No moves left here! Try another:)');
     }
 
-    //once all blocks are moved another one will appear 
-    setTimeout(choose2random, 160);
 }
 //function to produce random number
 const ran = (min = 0, max = 1) => {
