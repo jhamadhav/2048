@@ -18,7 +18,7 @@
     }
 
     document.addEventListener('touchstart', handleTouchStart, false);
-    document.addEventListener('touchmove', handleTouchMove, false);
+    document.addEventListener('touchmove', handleTouchMove, { passive: false });
     document.addEventListener('touchend', handleTouchEnd, false);
 
     var xDown = null;
@@ -88,7 +88,7 @@
     }
 
     function handleTouchMove(e) {
-
+        e.preventDefault();
         if (!xDown || !yDown) return;
 
         var xUp = e.touches[0].clientX;
