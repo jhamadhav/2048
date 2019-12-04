@@ -111,13 +111,13 @@ nav h1 {
    display: block;
    font-size: x-large;
    text-transform: uppercase;
-   letter-spacing: 5px;
    font-family: "Raleway", sans-serif;
    letter-spacing: 2px;
    flex-grow: 1;
    align-content: center;
    text-align: left;
    margin-left: 4em;
+   padding: 0;
 }
 
 .burger {
@@ -139,6 +139,7 @@ nav h1 {
 
    nav h1 {
       margin-left: 1em;
+      padding: 0;
    }
 }
 

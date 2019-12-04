@@ -72,12 +72,16 @@
 
  @media (max-height: 360px) {
      main {
-         //  margin-top: 70px;
+         margin-top: 20px;
      }
 
      nav h1 {
-         padding: 24px;
          font-size: medium;
+         margin-left: 0;
+     }
+
+     .burger {
+         margin-left: .5em;
      }
 
      .score-holder>span,
