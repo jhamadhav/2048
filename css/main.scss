@@ -61,7 +61,6 @@
      width: 100vw;
      height: 100vh;
      display: block;
-     justify-content: center;
      align-items: center;
      position: absolute;
      top: 0;
@@ -69,6 +68,7 @@
      padding-top: 20vh;
      flex-direction: column;
  }
+
 
  @media (max-height: 360px) {
      main {

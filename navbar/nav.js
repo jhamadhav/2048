@@ -2,9 +2,11 @@
 function menu() {
     document.getElementsByClassName("nav-links")[0].classList.toggle("open");
     document.getElementsByClassName("burger")[0].classList.toggle("menuAnimate");
+    window.scroll(0, 0);
 }
 
 // hide/show navbar when scrolled i.eevent listerner when scrolled
+let prev, now;
 window.onscroll = function () {
     now = window.pageYOffset;
     var btn = document.getElementsByTagName("nav")[0];

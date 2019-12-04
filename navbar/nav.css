@@ -30,7 +30,7 @@ nav {
    -ms-flex-direction: row;
    flex-direction: row;
    -ms-flex-pack: distribute;
-   justify-content: space-evenly;
+   justify-content: flex-start;
    -webkit-box-align: center;
    -ms-flex-align: center;
    align-items: center;
@@ -114,6 +114,10 @@ nav h1 {
    letter-spacing: 5px;
    font-family: "Raleway", sans-serif;
    letter-spacing: 2px;
+   flex-grow: 1;
+   align-content: center;
+   text-align: left;
+   margin-left: 2em;
 }
 
 .burger {
@@ -125,6 +129,7 @@ nav h1 {
    font-family: "EB Garamond", serif;
    -webkit-transition-duration: 300ms;
    transition-duration: 300ms;
+   margin-left: 1em;
 }
 
 @media (max-width: 770px) {
