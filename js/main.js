@@ -17,6 +17,11 @@ const hints = [
 
 //onload function
 window.addEventListener('load', () => {
+    //setting i.e adding swipe events
+    let container = document.getElementsByClassName('touch')[0];
+    container.addEventListener('touchstart', handleTouchStart, false);
+    container.addEventListener('touchmove', handleTouchMove, false);
+
     show_msg('use arrow-key/Swipe to make 2048 !');
     init();
 });
@@ -24,11 +29,6 @@ window.addEventListener('load', () => {
 /* end */
 
 function init() {
-    //setting i.e adding swipe events
-    let container = document.getElementsByClassName('game-container')[0];
-    container.addEventListener('touchstart', handleTouchStart, false);
-    container.addEventListener('touchmove', handleTouchMove, false);
-
     score = 0;
     best = Number(localStorage.best_score) | 0;
     document.getElementById('score').innerText = score;

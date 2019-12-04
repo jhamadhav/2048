@@ -1,0 +1,20 @@
+{
+    "short_name": "2048 - Game",
+    "name": "2048 - Game",
+    "icons": [
+        {
+            "src": "../images/2048_logo.svg.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "../images/2048_logo.svg.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+    ],
+    "start_url": "../index.html",
+    "background_color": "#bdaca2",
+    "display": "standalone",
+    "theme_color": "#bdaca2"
+}

@@ -60,19 +60,19 @@
  main {
      width: 100vw;
      height: 100vh;
-     display: flex;
+     display: block;
      justify-content: center;
      align-items: center;
      position: absolute;
      top: 0;
      left: 0;
-     padding-top: 20px;
+     padding-top: 20vh;
      flex-direction: column;
  }
 
  @media (max-height: 360px) {
      main {
-         margin-top: 70px;
+         //  margin-top: 70px;
      }
 
      nav h1 {

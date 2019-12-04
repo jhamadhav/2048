@@ -14,6 +14,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- css and js -->
+    <link rel="manifest" href="pwa/manifest.json">
+    <script src="navbar/nav.js"></script>
     <link rel="stylesheet" href="navbar/nav.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/cells.js"></script>
@@ -48,12 +50,6 @@
             </a>
         </ul>
     </nav>
-    <script>
-        function menu() {
-            document.getElementsByClassName("nav-links")[0].classList.toggle("open");
-            document.getElementsByClassName("burger")[0].classList.toggle("menuAnimate");
-        }
-    </script>
     <!-- nav bar html ends here -->
     <main>
 
@@ -70,36 +66,38 @@
                         <div id="best">0</div>
                     </div>
                 </div>
-                <div class="game-row">
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                </div>
-                <div class="game-row">
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                </div>
-                <div class="game-row">
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                </div>
-                <div class="game-row">
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                    <div class="cell"></div>
-                </div>
+                <span class="touch">
+                    <div class="game-row">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="game-row">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="game-row">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                    <div class="game-row">
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
+                </span>
             </div>
             <button title="Start new game" id="new_game" onclick="new_game()">New Game</button>
 
         </div>
     </main>
-
+    <script src="pwa/registerSW.js"></script>
 </body>
 
 </html>

@@ -36,7 +36,7 @@ body {
   padding: 12px;
   background: #eda442;
   font-family: 'Roboto Mono', monospace;
-  font-size: small;
+  font-size: medium;
   opacity: 0;
   text-align: center;
   width: 80vw;
@@ -78,9 +78,7 @@ body {
 main {
   width: 100vw;
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -90,7 +88,7 @@ main {
   position: absolute;
   top: 0;
   left: 0;
-  padding-top: 20px;
+  padding-top: 20vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -98,9 +96,6 @@ main {
 }
 
 @media (max-height: 360px) {
-  main {
-    margin-top: 70px;
-  }
   nav h1 {
     padding: 24px;
     font-size: medium;
