@@ -9,7 +9,8 @@ const assets = [
     '../about/about.html',
     '../pwa/manifest.json',
     '../pwa/registerSW.js',
-    '../images/2048_logo.svg.png'
+    '../images/2048_logo.svg.png',
+    '../js/swipe.js'
 ];
 
 // Call install event

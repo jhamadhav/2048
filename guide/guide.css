@@ -105,4 +105,14 @@ svg:active {
   -webkit-transform: scale(0.86);
           transform: scale(0.86);
 }
+
+@media (max-height: 360px) {
+  nav h1 {
+    font-size: large;
+    margin-left: 0;
+  }
+  .burger {
+    margin-left: .5em;
+  }
+}
 /*# sourceMappingURL=guide.css.map */

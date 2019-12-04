@@ -13,6 +13,17 @@
      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
  }
 
+ //for bg
+ .bg {
+     width: 100vw;
+     height: 100vh;
+     position: fixed;
+     top: 0;
+     left: 0;
+     background: transparent;
+     z-index: 1;
+ }
+
  //the pop up msg
  .msg-holder {
      display: flex;
@@ -23,7 +34,7 @@
      position: relative;
      left: 0;
      background: transparent;
-     z-index: 2;
+     z-index: 4;
  }
 
  #msg {
@@ -70,13 +81,14 @@
  }
 
 
+
  @media (max-height: 360px) {
      main {
          margin-top: 20px;
      }
 
      nav h1 {
-         font-size: medium;
+         font-size: large;
          margin-left: 0;
      }
 
@@ -113,6 +125,7 @@
      user-select: none;
      margin-top: auto;
      margin-bottom: 6px;
+     z-index: 2;
  }
 
  //score and best score display

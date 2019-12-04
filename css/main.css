@@ -14,6 +14,16 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  z-index: 1;
+}
+
 .msg-holder {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,7 +38,7 @@ body {
   position: relative;
   left: 0;
   background: transparent;
-  z-index: 2;
+  z-index: 4;
 }
 
 #msg {
@@ -97,7 +107,7 @@ main {
     margin-top: 20px;
   }
   nav h1 {
-    font-size: medium;
+    font-size: large;
     margin-left: 0;
   }
   .burger {
@@ -150,6 +160,7 @@ main {
           user-select: none;
   margin-top: auto;
   margin-bottom: 6px;
+  z-index: 2;
 }
 
 .board {

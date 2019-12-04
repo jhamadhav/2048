@@ -76,7 +76,12 @@ nav {
       z-index: -1;
       visibility: hidden;
    }
+
+   .nav-links li {
+      font-size: large;
+   }
 }
+
 
 .nav-links li {
    list-style: none;
@@ -109,7 +114,7 @@ nav {
 
 nav h1 {
    display: block;
-   font-size: x-large;
+   font-size: xx-large;
    text-transform: uppercase;
    font-family: "Raleway", sans-serif;
    letter-spacing: 2px;
@@ -118,6 +123,7 @@ nav h1 {
    text-align: left;
    margin-left: 4em;
    padding: 0;
+   color: #262626;
 }
 
 .burger {
@@ -135,10 +141,12 @@ nav h1 {
 @media (max-width: 770px) {
    .burger {
       display: block;
+      margin-left: .5em;
    }
 
    nav h1 {
-      margin-left: 1em;
+      font-size: x-large;
+      margin-left: 20px;
       padding: 0;
    }
 }
@@ -149,7 +157,7 @@ nav h1 {
    height: 4px;
    width: 40px;
    margin: 6px;
-   background-color: #efefef;
+   background-color: #262626;
    -webkit-transition-duration: 300ms;
    transition-duration: 300ms;
 }

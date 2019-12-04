@@ -81,3 +81,16 @@ svg:hover {
 svg:active {
     transform: scale(.86);
 }
+
+@media (max-height: 360px) {
+
+    nav h1 {
+        font-size: large;
+        margin-left: 0;
+    }
+
+    .burger {
+        margin-left: .5em;
+    }
+
+}

@@ -17,11 +17,30 @@ const hints = [
 
 //onload function
 window.addEventListener('load', () => {
+
+    //for opening the navbar
+    let bg = document.getElementsByClassName('bg')[0];
+    bg.addEventListener('swiped-right', menu);
+    //for closing the navbar
+    document.getElementsByClassName('nav-links')[0].addEventListener('swiped-left', menu);
+
+
     //setting i.e adding swipe events
     let container = document.getElementsByClassName('touch')[0];
-    container.addEventListener('touchstart', handleTouchStart, false);
-    container.addEventListener('touchmove', handleTouchMove, false);
+    container.addEventListener('swiped-left', () => {
+        dir = 'left'; move_block();
+    });
+    container.addEventListener('swiped-right', () => {
+        dir = 'right'; move_block();
+    });
+    container.addEventListener('swiped-up', () => {
+        dir = 'up'; move_block();
+    });
+    container.addEventListener('swiped-down', () => {
+        dir = 'down'; move_block();
+    });
 
+    //some text msg
     show_msg('use arrow-key/Swipe to make 2048 !');
     init();
 });
@@ -83,7 +102,7 @@ window.addEventListener('keyup', function (e) {
         dir = 'left'; move_block();
     }
     //console.log(dir);
-});
+}, { passive: false });
 
 //to show a message on screen
 function show_msg(txt) {
@@ -94,57 +113,3 @@ function show_msg(txt) {
         msg.classList.remove('show-msg');
     })
 }
-//with swipe
-/*  actual swipe capture */
-var xDown = null, yDown = null;
-
-function getTouches(evt) {
-    return evt.touches ||
-        evt.originalEvent.touches;
-}
-
-function handleTouchStart(evt) {
-    evt.preventDefault();
-    const firstTouch = getTouches(evt)[0];
-    xDown = firstTouch.clientX;
-    yDown = firstTouch.clientY;
-};
-
-function handleTouchMove(evt) {
-    evt.preventDefault();
-    if (!xDown || !yDown) { return; }
-
-    var xUp = evt.touches[0].clientX;
-    var yUp = evt.touches[0].clientY;
-    var xDiff = xDown - xUp;
-    var yDiff = yDown - yUp;
-
-    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-
-        /*Response part*/
-        if (xDiff > 0) {
-            /* right swipe */
-            dir = 'left';
-            move_block();
-        } else {
-            /* right swipe */
-            dir = 'right';
-            move_block();
-        }
-    }
-    else {
-        if (yDiff > 0) {
-            /* up swipe */
-            dir = 'up';
-            move_block();
-        } else {
-            /* down swipe */
-            dir = 'down';
-            move_block();
-        }
-    }
-
-    /* reset values */
-    xDown = null; yDown = null;
-};
-
