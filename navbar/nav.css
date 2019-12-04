@@ -83,7 +83,7 @@ nav {
    text-decoration: none;
    text-transform: uppercase;
    letter-spacing: 3px;
-   font-size: 24px;
+   font-size: medium;
    border-bottom: 4px solid transparent;
    border-top: 4px solid transparent;
    padding: 8px;
@@ -117,7 +117,7 @@ nav h1 {
    flex-grow: 1;
    align-content: center;
    text-align: left;
-   margin-left: 2em;
+   margin-left: 4em;
 }
 
 .burger {
@@ -138,7 +138,7 @@ nav h1 {
    }
 
    nav h1 {
-      padding-right: 86px;
+      margin-left: 1em;
    }
 }
 
