@@ -323,6 +323,8 @@ span {
   color: white;
   font-size: x-large;
   font-weight: bolder;
+  -webkit-transition-duration: 100ms;
+          transition-duration: 100ms;
 }
 
 .pop {

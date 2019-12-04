@@ -251,7 +251,7 @@ function move_block() {
 
     //to show indicative moves
     if (count == 0) {
-        show_msg('No moves left here! Try another:)');
+        show_msg('No moves left here !');
     }
 
 }
