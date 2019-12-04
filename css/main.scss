@@ -6,9 +6,6 @@
 
  body {
      background-color: #bdaca2;
-     //  position: fixed;
-     //  top: 0;
-     //  left: 0;
      width: 100vw;
      height: 100vh;
      --side: 19vw;
@@ -16,6 +13,7 @@
      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
  }
 
+ //the pop up msg
  .msg-holder {
      display: flex;
      width: 100vw;
@@ -33,7 +31,7 @@
      padding: 12px;
      background: rgba(237, 164, 66, 1);
      font-family: 'Roboto Mono', monospace;
-     font-size: medium;
+     font-size: small;
      opacity: 0;
      text-align: center;
      width: 80vw;
@@ -58,16 +56,40 @@
      }
  }
 
+ //main game holding stuff
  main {
      width: 100vw;
      height: 100vh;
      display: flex;
      justify-content: center;
      align-items: center;
-     position: fixed;
-     flex-direction: column;
+     position: absolute;
      top: 0;
      left: 0;
+     padding-top: 20px;
+     flex-direction: column;
+ }
+
+ @media (max-height: 360px) {
+     main {
+         margin-top: 70px;
+     }
+
+     nav h1 {
+         padding: 24px;
+         font-size: medium;
+     }
+
+     .score-holder>span,
+     .best-holder>span {
+         font-size: xx-small;
+
+     }
+
+     #best,
+     #score {
+         font-size: xx-small;
+     }
  }
 
  .wrapper {
@@ -89,6 +111,7 @@
      margin-bottom: 6px;
  }
 
+ //score and best score display
  .board {
      width: 97%;
      background: transparent;
@@ -196,6 +219,7 @@
      letter-spacing: 1px;
  }
 
+ //game-body
  .game-row {
      display: flex;
      justify-content: space-around;

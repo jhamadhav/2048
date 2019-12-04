@@ -17,7 +17,7 @@ const hints = [
 
 //onload function
 window.addEventListener('load', () => {
-    show_msg('Swipe blocks to make 2048 !');
+    show_msg('use arrow-key/Swipe to make 2048 !');
     init();
 });
 
@@ -69,7 +69,7 @@ function rest_best() {
 /* Controls */
 //with keyboard
 window.addEventListener('keyup', function (e) {
-
+    e.preventDefault();
     //to move blocks
     if (e.key == 'ArrowUp' || e.key == 'w') {
         dir = 'up';
