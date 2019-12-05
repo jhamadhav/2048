@@ -21,7 +21,7 @@ const assets = [
 self.addEventListener('install', (event) => {
     console.log('Service Worker: Installed');
 
-    // wait untill the promice is finished
+    // wait until the promise is finished
     event.waitUntil(
         caches
             .open(cacheName)
@@ -44,7 +44,7 @@ self.addEventListener('activate', (event) => {
             return Promise.all(
                 cacheNames.map(cache => {
                     if (cache !== cacheName) {
-                        console.log('Service Worker: claering Old cache');
+                        console.log('Service Worker: clearing Old cache');
                         return caches.delete(cache);
                     }
                 })
@@ -56,9 +56,9 @@ self.addEventListener('activate', (event) => {
 // call fetch event
 self.addEventListener('fetch', (event) => {
     console.log('Service Worker: Fetching');
-    // first check if live site is availabe else fetch file from cache
+    // first check if live site is available else fetch file from cache
     event.respondWith(
         /* if there is no connection then fetching will fail then we would call a catch function since it returns a promise*/
-        fetch(event.request).catch( () => caches.match(e.request))
+        fetch(event.request).catch(() => caches.match(e.request))
     )
 })
