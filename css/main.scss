@@ -80,17 +80,11 @@
      flex-direction: column;
  }
 
-
-
- @media (max-height: 360px) {
+ @media (max-width: 300px) {
      main {
          margin-top: 20px;
      }
 
-     nav h1 {
-         font-size: large;
-         margin-left: 0;
-     }
 
      .burger {
          margin-left: .5em;
@@ -105,6 +99,19 @@
      #best,
      #score {
          font-size: xx-small;
+     }
+
+     #new_game,
+     #new_hint {
+         font-size: x-small;
+     }
+ }
+
+ @media (max-width: 770px) {
+     nav h1 {
+         font-size: large;
+         margin-left: -20px;
+         text-align: center;
      }
  }
 
@@ -124,7 +131,7 @@
      padding: 6px;
      user-select: none;
      margin-top: auto;
-     margin-bottom: 6px;
+     margin-bottom: 0;
      z-index: 2;
  }
 
@@ -187,7 +194,7 @@
 
  button {
      border-radius: 5px;
-     padding: 10px;
+     padding: 6px 12px 6px 12px;
      background: #8f7a65;
      color: white;
      outline: none;
@@ -290,4 +297,14 @@
      100% {
          transform: scale(1.21);
      }
+ }
+
+ //hint holder
+ .btn-hints {
+     width: 80vw;
+     max-width: 416px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-direction: row;
  }

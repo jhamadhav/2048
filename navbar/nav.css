@@ -16,6 +16,7 @@ body {
    overflow-x: hidden;
    --theme: #edce73;
    --h: 64px;
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 nav {

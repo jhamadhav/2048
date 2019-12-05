@@ -29,18 +29,6 @@ window.addEventListener('load', () => {
     let container = document.getElementsByClassName('touch')[0];
     container.addEventListener('touchstart', handleTouchStart, { passive: false });
     container.addEventListener('touchmove', handleTouchMove, { passive: false });
-    // container.addEventListener('swiped-left', () => {
-    //     dir = 'left'; move_block();
-    // });
-    // container.addEventListener('swiped-right', () => {
-    //     dir = 'right'; move_block();
-    // });
-    // container.addEventListener('swiped-up', () => {
-    //     dir = 'up'; move_block();
-    // });
-    // container.addEventListener('swiped-down', () => {
-    //     dir = 'down'; move_block();
-    // });
 
     //some text msg
     show_msg('use arrow-key/Swipe to make 2048 !');
@@ -72,10 +60,13 @@ function init() {
     }
 }
 
-//for a new game
+//for a new game and new hint
 function new_game() {
-    show_msg('Hint: ' + hints[count_hint % (hints.length)]);
+    show_msg('New Game !');
     setTimeout(init, 200);
+}
+function new_hint() {
+    show_msg('Hint: ' + hints[count_hint % (hints.length)]);
     count_hint++;
 }
 

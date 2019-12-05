@@ -13,15 +13,11 @@
     <link rel="shortcut icon" href="images/2048_logo.svg.png" type="image/x-icon" />
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <!-- css and js -->
+    <!-- css  -->
     <link rel="manifest" href="pwa/manifest.json">
-    <script src="navbar/nav.js"></script>
     <link rel="stylesheet" href="navbar/nav.css">
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/swipe.js"></script>
-    <script src="js/cells.js"></script>
-    <script src="js/main.js"></script>
-    <!-- end of css and js files -->
+    <!-- end of css files -->
 
     <title>2048 - Game</title>
 </head>
@@ -95,11 +91,19 @@
                     </div>
                 </span>
             </div>
-            <button title="Start new game" id="new_game" onclick="new_game()">New Game</button>
+            <div class="btn-hints">
+                <button title="Get a hint" id="new_hint" onclick="new_hint()">Hint</button>
+                <button title="Start new game" id="new_game" onclick="new_game()">New Game</button>
+            </div>
 
         </div>
     </main>
+    <!-- js files -->
     <script src="pwa/registerSW.js"></script>
+    <script src="navbar/nav.js"></script>
+    <script src="js/swipe.js"></script>
+    <script src="js/cells.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
