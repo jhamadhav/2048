@@ -2,7 +2,7 @@ let registerSW = () => {
     // first check if service worker is supported in the browser
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-            .register('./serviceworker1.js')
+            .register('./SW.js')
             .then(reg => console.log('Service Worker Registered'))
             .catch(err => console.log('Service Worker Registeration error: ' + err));
     }
