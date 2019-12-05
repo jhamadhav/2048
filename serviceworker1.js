@@ -1,4 +1,4 @@
-const cacheName = 'v1.01';
+const cacheName = 'v1';
 const assets = [
     '../index.html',
     '../css/main.css',
