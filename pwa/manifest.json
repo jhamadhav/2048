@@ -3,14 +3,29 @@
     "name": "2048 - Game",
     "icons": [
         {
-            "src": "../images/2048_logo.svg.png",
+            "src": "../images/2048_logo.svg_128.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "128x128"
         },
         {
-            "src": "../images/2048_logo.svg.png",
+            "src": "../images/2048_logo.svg_152.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "../images/2048_logo.svg_192.png",
             "type": "image/png",
             "sizes": "192x192"
+        },
+        {
+            "src": "../images/2048_logo.svg_384.png",
+            "type": "image/png",
+            "sizes": "384x384"
+        },
+        {
+            "src": "../images/2048_logo.svg_512.png",
+            "type": "image/png",
+            "sizes": "512x512"
         }
     ],
     "start_url": "/2048/",
