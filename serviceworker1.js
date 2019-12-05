@@ -1,4 +1,4 @@
-const cacheName = 'v1';
+const cacheName = 'v1.01';
 const assets = [
     '../index.html',
     '../css/main.css',
@@ -9,7 +9,11 @@ const assets = [
     '../about/about.html',
     '../pwa/manifest.json',
     '../pwa/registerSW.js',
-    '../images/2048_logo.svg.png',
+    '../images/2048_logo.svg_128x128.png',
+    '../images/2048_logo.svg_192x192.png',
+    '../images/2048_logo.svg_512x512.png',
+    '../images/2048_logo.svg_152x152.png',
+    '../images/2048_logo.svg_384x384.png',
     '../js/swipe.js'
 ];
 
