@@ -143,7 +143,7 @@ function handleTouchMove(evt) {
                 move_block();
             }
         }
-        alert(Math.abs(xDiff));
+        //  alert(Math.abs(xDiff));
     }
     else {
         if (Math.abs(yDiff) > swipeThreshold) {
@@ -157,7 +157,7 @@ function handleTouchMove(evt) {
                 move_block();
             }
         }
-        alert(Math.abs(xDiff));
+        // alert(Math.abs(xDiff));
     }
     /* reset values */
     xDown = null; yDown = null;
