@@ -2,7 +2,7 @@
 var tile, dir = null;
 var tile_set = [];
 var score, best = 0, count_hint = 0;
-const swipeThreshold = 2;
+const swipeThreshold = 0.5;
 //some in game tips
 const hints = [
     'Click best to reset it !',
