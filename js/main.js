@@ -123,29 +123,31 @@ function handleTouchStart(evt) {
 };
 function handleTouchMove(evt) {
     evt.preventDefault();
+    let threshold = 5;
     if (!xDown || !yDown) { return; }
     var xUp = evt.touches[0].clientX;
     var yUp = evt.touches[0].clientY;
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        console.log(xDiff);
         /*Response part*/
-        if (xDiff > 0) {
-            /* right swipe */
+        if (xDiff > threshold) {
+            /* right left*/
             dir = 'left';
             move_block();
-        } else {
+        } else if (xDiff < -threshold) {
             /* right swipe */
             dir = 'right';
             move_block();
         }
     }
     else {
-        if (yDiff > 0) {
+        if (yDiff > threshold) {
             /* up swipe */
             dir = 'up';
             move_block();
-        } else {
+        } else if (yDiff < -threshold) {
             /* down swipe */
             dir = 'down';
             move_block();
