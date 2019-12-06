@@ -130,7 +130,7 @@ function handleTouchMove(evt) {
     var xDiff = xDown - xUp;
     var yDiff = yDown - yUp;
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        console.log(xDiff);
+        //console.log(xDiff);
         /*Response part*/
         if (xDiff > threshold) {
             /* right left*/
