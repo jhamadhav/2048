@@ -2,7 +2,7 @@
 var tile, dir = null;
 var tile_set = [];
 var score, best = 0, count_hint = 0;
-const swipeThreshold = 0.5;
+const swipeThreshold = 0.25;
 //some in game tips
 const hints = [
     'Click best to reset it !',
@@ -143,6 +143,7 @@ function handleTouchMove(evt) {
                 move_block();
             }
         }
+        alert(Math.abs(xDiff));
     }
     else {
         if (Math.abs(yDiff) > swipeThreshold) {
@@ -156,6 +157,7 @@ function handleTouchMove(evt) {
                 move_block();
             }
         }
+        alert(Math.abs(xDiff));
     }
     /* reset values */
     xDown = null; yDown = null;
