@@ -2,7 +2,7 @@
 var tile, dir = null;
 var tile_set = [];
 var score, best = 0, count_hint = 0;
-
+const swipeThreshold = 2;
 //some in game tips
 const hints = [
     'Click best to reset it !',
@@ -131,26 +131,30 @@ function handleTouchMove(evt) {
     var yDiff = yDown - yUp;
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
         //console.log(xDiff);
-        /*Response part*/
-        if (xDiff > 0) {
-            /* right left*/
-            dir = 'left';
-            move_block();
-        } else {
-            /* right swipe */
-            dir = 'right';
-            move_block();
+        if (Math.abs(xDiff) > swipeThreshold) {
+            /*Response part*/
+            if (xDiff > 0) {
+                /* right left*/
+                dir = 'left';
+                move_block();
+            } else {
+                /* right swipe */
+                dir = 'right';
+                move_block();
+            }
         }
     }
     else {
-        if (yDiff > 0) {
-            /* up swipe */
-            dir = 'up';
-            move_block();
-        } else {
-            /* down swipe */
-            dir = 'down';
-            move_block();
+        if (Math.abs(xDiff) > swipeThreshold) {
+            if (yDiff > 0) {
+                /* up swipe */
+                dir = 'up';
+                move_block();
+            } else {
+                /* down swipe */
+                dir = 'down';
+                move_block();
+            }
         }
     }
     /* reset values */
