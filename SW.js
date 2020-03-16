@@ -2,21 +2,7 @@
 
 const cacheName = "v7";
 const assets = [
-    './index.html',
-    './css/main.css',
-    './js/cell.js',
-    './js/main.js',
-    './guide/guide.html',
-    './guide/guide.css',
-    './about/about.html',
-    './pwa/manifest.json',
-    './pwa/registerSW.js',
-    './images/2048_logo.svg_128x128.png',
-    './images/2048_logo.svg_192x192.png',
-    './images/2048_logo.svg_512x512.png',
-    './images/2048_logo.svg_152x152.png',
-    './images/2048_logo.svg_384x384.png',
-    './js/swipe.js'
+    './index.html'
 ];
 
 self.addEventListener("install", function (event) {
