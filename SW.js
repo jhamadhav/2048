@@ -1,4 +1,6 @@
-const cacheName = 'v4';
+// This is the service worker with the Cache-first network
+
+const cacheName = "v5";
 const assets = [
     './index.html',
     './css/main.css',
@@ -17,23 +19,23 @@ const assets = [
     './js/swipe.js'
 ];
 
-// Call install event
-self.addEventListener('install', (event) => {
-    console.log('Service Worker: Installed');
+self.addEventListener("install", function (event) {
+    console.log("Install Event processing");
 
-    // wait until the promise is finished
+
     event.waitUntil(
-        caches
-            .open(cacheName)
-            .then((cache) => {
-                console.log('Service Worker: Caching File');
+        caches.open(cacheName)
+            .then(function (cache) {
+                console.log("Caching pages during install");
                 return cache.addAll(assets);
             })
-            .then(() => { self.skipWaiting(); })
+            .then(function () {
+                console.log("Skip waiting on install");
+                self.skipWaiting();
+            })
     );
 });
 
-// call activate event
 self.addEventListener("activate", function (event) {
 
     // Allow sw to control of current page
