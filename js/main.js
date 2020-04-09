@@ -28,10 +28,6 @@ window.addEventListener('load', () => {
     //for closing the navbar
     document.getElementsByClassName('nav-links')[0].addEventListener('swiped-left', menu);
 
-    //sound effects 
-    slide = new Audio('./sound/block.mp3');
-    slide.volume = '0.6';
-
     //setting i.e adding swipe events
     let container = document.getElementsByClassName('touch')[0];
     container.addEventListener('touchstart', handleTouchStart, { passive: false });
