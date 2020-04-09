@@ -1,14 +1,11 @@
 // This is the service worker with the Cache-first network
 
-const cacheName = "v7";
+const cacheName = "v8";
 const assets = [
     './index.html',
     './css/main.css',
     './js/cells.js',
     './js/main.js',
-    './guide/guide.html',
-    './guide/guide.css',
-    './about/about.html',
     './pwa/manifest.json',
     './pwa/registerSW.js',
     './images/2048_logo.svg_128.png',
@@ -16,7 +13,9 @@ const assets = [
     './images/2048_logo.svg_512.png',
     './images/2048_logo.svg_152.png',
     './images/2048_logo.svg_384.png',
-    './js/swipe.js'
+    './js/swipe.js',
+    './navbar/nav.css',
+    './navbar/nav.js'
 ];
 
 self.addEventListener("install", function (event) {

@@ -14,6 +14,8 @@ const hints = [
     'try merging multiple tiles at once',
     'Avoid checkerboarding'
 ];
+//sound effects
+let slide;
 
 //onload function
 window.addEventListener('load', () => {
@@ -21,9 +23,14 @@ window.addEventListener('load', () => {
     //for opening the navbar
     let bg = document.getElementsByClassName('bg')[0];
     bg.addEventListener('swiped-right', menu);
+    document.getElementById('about').addEventListener('swiped-right', menu);
+    document.getElementById('guide').addEventListener('swiped-right', menu);
     //for closing the navbar
     document.getElementsByClassName('nav-links')[0].addEventListener('swiped-left', menu);
 
+    //sound effects 
+    slide = new Audio('./sound/block.mp3');
+    slide.volume = '0.6';
 
     //setting i.e adding swipe events
     let container = document.getElementsByClassName('touch')[0];
@@ -86,6 +93,7 @@ window.addEventListener('keyup', function (e) {
     if (e.key == 'ArrowUp' || e.key == 'w') {
         dir = 'up';
         move_block();
+
     } else if (e.key == 'ArrowRight' || e.key == 'd') {
         dir = 'right'; move_block();
     } else if (e.key == 'ArrowDown' || e.key == 's') {
