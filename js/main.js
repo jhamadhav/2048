@@ -14,8 +14,6 @@ const hints = [
     'try merging multiple tiles at once',
     'Avoid checkerboarding'
 ];
-//sound effects
-let slide;
 
 //onload function
 window.addEventListener('load', () => {
