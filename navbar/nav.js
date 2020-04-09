@@ -1,3 +1,4 @@
+let preState = 0;
 window.onload = function () {
     let tab = document.getElementsByClassName('tab');
     let page = document.getElementsByClassName('page');
@@ -6,9 +7,10 @@ window.onload = function () {
         tab[i].addEventListener('click', () => {
             to_page(i);
         });
-        page[i].style.left = i * 100 + "%";
+        page[i].style.transform = "scale(0)";
+        page[i].style.animation = "";
     }
-    to_page(0, true);
+    page[0].style.transform = "scale(1)";
 }
 window.onpopstate = function (event) {
     console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
@@ -45,15 +47,42 @@ window.onscroll = function () {
 
 //
 function to_page(x, isBack = false) {
+
+    let stateDiff = preState - x;
+    preState = x;
+
+    let multi = 0
+    if (stateDiff > 0) {
+        multi = -1;
+    } else if (stateDiff < 0) {
+        multi = 1;
+    } else if (stateDiff === 0) {
+        multi = 0;
+    };
+    console.log(multi);
+
     let tab = document.getElementsByClassName('tab');
     let page = document.getElementsByClassName('page');
     for (let i = 0; i < tab.length; i++) {
         tab[i].style.color = 'white';
         tab[i].style.borderBottom = '4px solid transparent';
-        page[i].style.transform = "translate(-" + (x) * 100 + "%)";
+        // page[i].style.transform = "scale(0)";
     }
     tab[x].style.color = '#262626';
     tab[x].style.borderBottom = '4px solid #262626';
+    page[x].style.zIndex = 1;
+    page[x].style.transform = "scale(1) translate(" + multi * 100 + "%)";
+    page[x].style.animation = "showup 350ms linear";
+    page[x].addEventListener("animationend", () => {
+
+        page[x].style.animation = "";
+        for (let i = 0; i < tab.length; i++) {
+            page[i].style.transform = "scale(0)";
+        }
+        page[x].style.transform = "scale(1) translate(0)";
+        page[x].style.zIndex = 0;
+
+    });
     // console.log(x);
     if (window.innerWidth <= 770 && !isBack) {
         menu();

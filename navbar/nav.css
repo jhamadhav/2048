@@ -32,7 +32,7 @@ nav {
   flex-direction: row;
   -ms-flex-pack: distribute;
   -webkit-box-pack: start;
-          justify-content: flex-start;
+  justify-content: flex-start;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -45,13 +45,21 @@ nav {
 
 .page {
   width: 100%;
-  height: calc(100% - var(--h));
+  height: auto;
   background: #262626;
   color: white;
   position: absolute;
-  top: var(--h);
-  -webkit-transition: 200ms;
-  transition: 200ms;
+  top: 0;
+  left: 0;
+  padding-top: calc(var(--h) + var(--h));
+  animation: none;
+  z-index: 0;
+}
+
+@keyframes showup {
+  100% {
+    transform: translate(0) scale(1);
+  }
 }
 
 .nav-links {
@@ -89,6 +97,7 @@ nav {
     z-index: -1;
     visibility: hidden;
   }
+
   .nav-links li {
     font-size: large;
   }
@@ -127,10 +136,10 @@ nav h1 {
   font-family: "Raleway", sans-serif;
   letter-spacing: 2px;
   -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   text-align: left;
   margin-left: 4em;
   padding: 0;
@@ -154,6 +163,7 @@ nav h1 {
     display: block;
     margin-left: .5em;
   }
+
   nav h1 {
     font-size: x-large;
     margin-left: 26px;
@@ -198,4 +208,7 @@ nav h1 {
   -webkit-transform: translateY(15px);
   transform: translateY(15px);
 }
+
+
+
 /*# sourceMappingURL=nav.css.map */

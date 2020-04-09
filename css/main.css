@@ -12,7 +12,6 @@ body {
   --side: 19vw;
   --max: 100px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  position: fixed;
 }
 
 .bg {
@@ -87,7 +86,7 @@ body {
 }
 
 #home {
-  display: inline-block;
+  display: block;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -96,7 +95,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   background: #bdaca2;
-  padding-top: 10vh;
+  min-height: 100%;
+  padding-bottom: 20px;
 }
 
 @media (max-width: 300px) {
@@ -425,14 +425,6 @@ span {
           flex-direction: row;
 }
 
-#guide,
-#about {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 10px;
-  padding-top: 60px;
-}
-
 #guide h2,
 #about h2 {
   letter-spacing: 2px;
@@ -533,5 +525,27 @@ span {
 #about svg:active {
   -webkit-transform: scale(0.86);
           transform: scale(0.86);
+}
+
+/* //scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+  padding: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c3c3c3;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #efefef;
 }
 /*# sourceMappingURL=main.css.map */
