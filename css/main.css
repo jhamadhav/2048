@@ -425,6 +425,11 @@ span {
           flex-direction: row;
 }
 
+#guide,
+#about {
+  padding-bottom: 20px;
+}
+
 #guide h2,
 #about h2 {
   letter-spacing: 2px;
@@ -530,7 +535,7 @@ span {
 /* //scrollbar */
 /* width */
 ::-webkit-scrollbar {
-  width: 2px;
+  width: 5px;
   padding: 2px;
 }
 

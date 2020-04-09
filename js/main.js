@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
 
 function init() {
     score = 0;
-    best = Number(localStorage.best_score) | 0;
+    best = Number(localStorage.best_score) || 0;
     document.getElementById('score').innerText = score;
     document.getElementById('best').innerText = best;
 
@@ -74,7 +74,7 @@ function new_hint() {
 //reset best
 function rest_best() {
     localStorage.best_score = '0';
-    best = Number(localStorage.best_score) | 0;
+    best = Number(localStorage.best_score) || 0;
     document.getElementById('best').innerText = best;
     show_msg('Best score reset complete !');
 
