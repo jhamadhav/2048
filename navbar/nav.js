@@ -49,11 +49,13 @@ function to_page(x, isBack = false) {
     let page = document.getElementsByClassName('page');
     for (let i = 0; i < tab.length; i++) {
         tab[i].style.color = 'white';
+        tab[i].style.borderBottom = '4px solid transparent';
         page[i].style.transform = "translate(-" + (x) * 100 + "%)";
     }
     tab[x].style.color = '#262626';
+    tab[x].style.borderBottom = '4px solid #262626';
     // console.log(x);
-    if (window.innerWidth < 700 && !isBack) {
+    if (window.innerWidth <= 770 && !isBack) {
         menu();
     }
     if (!isBack) {
