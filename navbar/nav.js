@@ -59,7 +59,6 @@ function to_page(x, isBack = false) {
     } else if (stateDiff === 0) {
         multi = 0;
     };
-    console.log(multi);
 
     let tab = document.getElementsByClassName('tab');
     let page = document.getElementsByClassName('page');
