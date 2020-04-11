@@ -44,7 +44,7 @@ nav {
 }
 
 .page {
-  width: 100%;
+  width: 100vw;
   height: auto;
   background: #262626;
   color: white;

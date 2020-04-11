@@ -13,8 +13,6 @@
      --side: 19vw;
      --max: 100px;
      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-     // overflow: hidden;
-     //  position: fixed;
  }
 
  //for bg
@@ -389,7 +387,7 @@
  /* width */
  ::-webkit-scrollbar {
      width: 5px;
-     padding: 2px;
+     //padding: 2px;
  }
 
  /* Track */

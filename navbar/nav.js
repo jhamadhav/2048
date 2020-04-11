@@ -65,7 +65,6 @@ function to_page(x, isBack = false) {
     for (let i = 0; i < tab.length; i++) {
         tab[i].style.color = 'white';
         tab[i].style.borderBottom = '4px solid transparent';
-        // page[i].style.transform = "scale(0)";
     }
     tab[x].style.color = '#262626';
     tab[x].style.borderBottom = '4px solid #262626';

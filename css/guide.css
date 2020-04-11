@@ -1,0 +1,110 @@
+#guide,
+#about {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 10px;
+  padding-top: 60px;
+}
+
+#guide h2,
+#about h2 {
+  letter-spacing: 2px;
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 20px;
+  width: 94%;
+  max-width: 900px;
+  font-size: xx-large;
+  color: #f4a234;
+}
+
+#guide p,
+#guide ul,
+#about p,
+#about ul {
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 16px;
+  padding: 6px;
+  width: 94%;
+  max-width: 900px;
+  font-size: large;
+}
+
+#guide ul,
+#about ul {
+  padding-left: 30px;
+}
+
+#guide a,
+#about a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #f4a234;
+}
+
+#guide footer,
+#about footer {
+  padding: 6px;
+  width: 94%;
+  max-width: 900px;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+#guide .follow,
+#about .follow {
+  width: 94%;
+  max-width: 900px;
+  font-size: xx-large;
+  color: gray;
+  font-family: "Raleway", sans-serif;
+  font-weight: bolder;
+  letter-spacing: 2px;
+}
+
+#guide .icons,
+#about .icons {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  margin-left: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+#guide svg,
+#about svg {
+  fill: gray;
+  width: 50px;
+  height: 50px;
+  margin: 16px;
+}
+
+#guide svg:hover,
+#about svg:hover {
+  fill: #f4a234;
+}
+
+#guide svg:active,
+#about svg:active {
+  -webkit-transform: scale(0.86);
+  transform: scale(0.86);
+}
+/*# sourceMappingURL=guide.css.map */
