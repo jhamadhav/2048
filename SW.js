@@ -16,7 +16,7 @@ const assets = [
     './images/2048_logo.svg_152.png',
     './images/2048_logo.svg_384.png',
     './js/swipe.js',
-    './navbar/nav.min.css',
+    './css/nav.min.css',
     './navbar/nav.js'
 ];
 
