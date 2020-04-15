@@ -66,6 +66,7 @@ function to_page(x, isBack = false) {
         tab[i].style.color = 'white';
         tab[i].style.borderBottom = '4px solid transparent';
         page[i].style.transform = "scale(0)";
+        page[i].style.animation = "";
     }
 
     //assigning newly found data results
@@ -73,6 +74,21 @@ function to_page(x, isBack = false) {
     tab[x].style.borderBottom = '4px solid #262626';
     page[x].style.transform = "scale(1)";
 
+    let diff = preState - x;
+    // console.log(diff);
+    preState = x;
+    if (diff == 0) {
+        page[x].style.animation = '';
+    } else if (diff > 0) {
+        page[x].style.animation = "from_left 350ms linear";
+    } else if (diff < 0) {
+        page[x].style.animation = "from_right 350ms linear";
+    }
+
+    page[x].addEventListener('animationend', () => {
+        page[x].style.animation = "";
+        page[x].style.left = 0;
+    });
     //opening and closing of the menu bar depending upon the window size
     if (window.innerWidth <= 770 && !isBack) {
         menu();

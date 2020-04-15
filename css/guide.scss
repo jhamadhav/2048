@@ -2,8 +2,9 @@
 
 #guide,
 #about {
-  padding: 90px 10px 50px 10px;
+  padding: 100px 10px 50px 10px;
   display: block;
+  user-select: auto;
 
   h2 {
     letter-spacing: 2px;
