@@ -1,6 +1,6 @@
 // This is the service worker with the Cache-first network
 
-const cacheName = "v8";
+const cacheName = "v9";
 const assets = [
     './index.html',
     './css/main.css',
