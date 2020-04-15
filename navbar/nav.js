@@ -1,30 +1,41 @@
-let preState = 0;
-window.onload = function () {
-    let tab = document.getElementsByClassName('tab');
-    let page = document.getElementsByClassName('page');
-    for (let i = 0; i < tab.length; i++) {
-
-        tab[i].addEventListener('click', () => {
-            to_page(i);
-        });
-        page[i].style.transform = "scale(0)";
-        page[i].style.animation = "";
-    }
-    page[0].style.transform = "scale(1)";
-}
-window.onpopstate = function (event) {
-    console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
-    let count = this.Number(history.state) - 1;
-    if (count >= 0) {
-        to_page(count, true);
-    }
-};
 //function to toggle navbar
 function menu() {
     document.getElementsByClassName("nav-links")[0].classList.toggle("open");
     document.getElementsByClassName("burger")[0].classList.toggle("menuAnimate");
     window.scroll(0, 0);
 }
+
+//to get to pages 
+let preState = 0;
+window.onload = function () {
+    let tab = document.getElementsByClassName('tab');
+    for (let i = 0; i < tab.length; i++) {
+        tab[i].addEventListener('click', () => {
+            to_page(i);
+        });
+    }
+
+    //to get to the initial page via 
+    let num = getParameterByName('page');
+    if (num != null && num < tab.length) {
+        to_page(num);
+    } else {
+        to_page(0);
+    }
+    if (window.innerWidth <= 770) {
+        menu();
+    }
+}
+
+//when back or forward button is clicked 
+window.onpopstate = function (event) {
+    console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    let count = Number(history.state);
+    if (count >= 0) {
+        to_page(count, true);
+    }
+};
+
 
 // hide/show navbar when scrolled i.event listener when scrolled
 let prev, now;
@@ -37,7 +48,7 @@ window.onscroll = function () {
         if (now - prev < 0) {
             btn.style.transform = "translateY(0)";
         } else {
-            btn.style.transform = "translateY(-70px)";
+            btn.style.transform = "translateY(-80px)";
         }
     } else {
         btn.style.transform = "translateY(0)";
@@ -45,47 +56,40 @@ window.onscroll = function () {
     prev = window.pageYOffset;
 };
 
-//
+// actual function to show animation and show the requested page
 function to_page(x, isBack = false) {
-
-    let stateDiff = preState - x;
-    preState = x;
-
-    let multi = 0
-    if (stateDiff > 0) {
-        multi = -1;
-    } else if (stateDiff < 0) {
-        multi = 1;
-    } else if (stateDiff === 0) {
-        multi = 0;
-    };
 
     let tab = document.getElementsByClassName('tab');
     let page = document.getElementsByClassName('page');
+
     for (let i = 0; i < tab.length; i++) {
         tab[i].style.color = 'white';
         tab[i].style.borderBottom = '4px solid transparent';
+        page[i].style.transform = "scale(0)";
     }
+
+    //assigning newly found data results
     tab[x].style.color = '#262626';
     tab[x].style.borderBottom = '4px solid #262626';
-    page[x].style.zIndex = 1;
-    page[x].style.transform = "scale(1) translate(" + multi * 100 + "%)";
-    page[x].style.animation = "showup 350ms linear";
-    page[x].addEventListener("animationend", () => {
+    page[x].style.transform = "scale(1)";
 
-        page[x].style.animation = "";
-        for (let i = 0; i < tab.length; i++) {
-            page[i].style.transform = "scale(0)";
-        }
-        page[x].style.transform = "scale(1) translate(0)";
-        page[x].style.zIndex = 0;
-
-    });
-    // console.log(x);
+    //opening and closing of the menu bar depending upon the window size
     if (window.innerWidth <= 770 && !isBack) {
         menu();
     }
+    //do not push state into history when back button is clicked
     if (!isBack) {
-        history.pushState((x + 1), "title " + (x + 1), "?page=" + (x + 1));
+        history.pushState(x, "title " + x, "?page=" + x);
     }
+}
+
+//to get the page number when entered manually
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }

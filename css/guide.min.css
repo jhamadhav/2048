@@ -1,9 +1,7 @@
 #guide,
 #about {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  padding: 10px;
-  padding-top: 60px;
+  padding: 90px 10px 50px 10px;
+  display: block;
 }
 
 #guide h2,
@@ -51,15 +49,15 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
-  justify-content: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #guide .follow,
@@ -80,13 +78,13 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   margin-left: 20px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 #guide svg,
@@ -105,6 +103,6 @@
 #guide svg:active,
 #about svg:active {
   -webkit-transform: scale(0.86);
-  transform: scale(0.86);
+          transform: scale(0.86);
 }
-/*# sourceMappingURL=guide.css.map */
+/*# sourceMappingURL=guide.min.css.map */

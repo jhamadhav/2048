@@ -17,14 +17,13 @@
     <link rel="icon" type="image/png" sizes="128x128" href="./images/2048_logo.svg_128.png">
     <meta name="msapplication-TileImage" content="./images/2048_logo.svg_128.png">
     <!-- fonts and stuff -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|EB+Garamond|Raleway" &display=swap"
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|EB+Garamond|Raleway" &display="swap"
         rel="stylesheet">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <!-- css  -->
     <link rel="manifest" href="pwa/manifest.json">
-    <link rel="stylesheet" href="navbar/nav.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.min.css">
     <!-- end of css files -->
 
     <title>2048 - Game</title>
@@ -44,12 +43,14 @@
     </div>
     <!-- nav bar html starts here -->
     <nav>
-        <div class="burger" onclick="menu()" title="Menu bar">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="header-holder">
+            <div class="burger" onclick="menu()" title="Menu bar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <h1>Game-2048</h1>
         </div>
-        <h1>Game-2048</h1>
         <ul class="nav-links">
 
             <li title="home" style='color:#262626; border-bottom:4px solid #262626' class="tab">home</li>
