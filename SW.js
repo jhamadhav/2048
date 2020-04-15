@@ -3,7 +3,9 @@
 const cacheName = "v9";
 const assets = [
     './index.html',
-    './css/main.css',
+    './css/main.min.css',
+    './css/home.min.css',
+    './css/guide.min.css',
     './js/cells.js',
     './js/main.js',
     './pwa/manifest.json',
@@ -14,7 +16,7 @@ const assets = [
     './images/2048_logo.svg_152.png',
     './images/2048_logo.svg_384.png',
     './js/swipe.js',
-    './navbar/nav.css',
+    './navbar/nav.min.css',
     './navbar/nav.js'
 ];
 
